@@ -33,7 +33,7 @@ def move_item_to_cube(coords):
    
 # Returns stats of transmuted item
 # size parameter must be either 'big' or 'small'
-def transmute_get_stats(size='')
+def transmute_get_stats(size=''):
    # Initialize post-transmute item location
    item_coords = (0, 0)
    if (size == 'large'):
