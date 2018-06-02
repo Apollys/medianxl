@@ -18,7 +18,7 @@ WINDOWED_COORDS['singleplayer'] = 958, 540
 WINDOWED_COORDS['exit'] = 959, 491
 WINDOWED_COORDS['cube'] = 1006, 476
 WINDOWED_COORDS['transmute'] = 801, 570
-WINDOWED_COORDS['cubetopleft'] = 685, 352
+WINDOWED_COORDS['cubetopleft'] = 670, 320
 WINDOWED_COORDS['cubebotright'] = 931, 524
 WINDOWED_COORDS['cubecenter'] = 801, 425
 
@@ -74,7 +74,8 @@ def lerp(x0, x1, y0, y1, x):
    return y0 + (y1 - y0)*r
    
 # convert square indices to pixel coordinates
-def get_inv_coords(x, y):
+def get_inv_coords(indices):
+   x, y = indices
    W = 10
    H = 8
    XMIN, YMIN = 993, 458 # top left corner of inventory
