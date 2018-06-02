@@ -41,7 +41,7 @@ def transmute_get_stats(size=''):
    elif (size == 'small'):
       item_coords = median.get_coords('cubebotright')
    else:
-      raise ValueError('Please give a size parameter, either 'large' or 'small')
+      raise ValueError("Please give a size parameter, either 'large' or 'small'")
    # Transmute
    mouse.move(*median.get_coords('transmute'))
    sleep_ms(10)
