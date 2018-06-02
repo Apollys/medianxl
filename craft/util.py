@@ -52,21 +52,28 @@ def exit_app():
    os._exit(0)
    
 
-def tile(w, h, total_w, total_h, n, x0=0, y0=0, skip_list=[]):
+def tile(w, h, total_w, total_h, n=-1, x0=0, y0=0, skip_list=[]):
    # Ensure the boundaries are "tight"
-   total_w = (total_w // w) * w
-   total_h = (total_h // h) * h
+   dim_x = total_w // w
+   dim_y = total_h // h
+   total_w = dim_x * w
+   total_h = dim_y * h
+   # Compute n if not given
+   if (n == -1):
+      n = dim_x * dim_y
+   n = min(dim_x * dim_y, n) # ensure n isn't too large
    xs = []
    ys = []
    i = 0
    while (i < n):
       if (i in skip_list):
          skip_list.remove(i)
-         n += 1
+         if (n < dim_x * dim_y):
+            n += 1
       else:
          x_counter = i*w + x0
-         xs.append(x_counter % total_w)
-         ys.append((x_counter // total_w) * h + y0)
+         xs.append((i*w) % total_w + x0)
+         ys.append(((i*w) // total_w) * h + y0)
       i += 1
    return list(zip(xs, ys))
    
